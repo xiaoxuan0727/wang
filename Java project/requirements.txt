@@ -1,0 +1,253 @@
+Xiangqi                                        Fall 2026
+
+Project Specification and Demo Guide
+
+CS109 Introduction to Computer Programming
+
+1. Introduction
+
+In this project, you are required to implement the classic board game Xiangqi using Java . Players move
+their pieces to threaten the opposing General while protecting their own. Your project must include a
+graphical interface, complete gameplay rules, user accounts, and game saving/loading.
+
+2. Board and Interface
+
+The board has 9 columns and 10 rows of intersections. Pieces stand on the intersections. A river separates
+the two sides, and each side has a palace covering 3 columns and 3 rows of intersections.
+
+A complete game starts with 16 pieces per side: 1 General (King), 2 Advisors, 2 Elephants, 2 Horses, 2
+Rooks, 2 Cannons, and 5 Soldiers. Red starts at the bottom and Black at the top.
+
+3. Game Rules
+
+ 1. Turns: Red moves first. The players then alternate, moving exactly one piece per turn. Passing is
+     not allowed.
+
+ 2. Moves and captures: Follow the movement rules for each piece type. A piece may capture an
+     opponent by moving to its intersection. A move cannot end on a friendly piece or leave the board.
+
+ 3. Check: A General is in check when an opposing piece threatens to capture it. A legal move must
+     leave the moving player's General safe. The two Generals must never face each other on the same
+     column with no intervening piece.
+
+ 4. Game endings:
+     Win/loss: The player to move loses if none of their pieces has a legal move. In this situation, it is
+     checkmate if that player's General is in check, and stalemate otherwise. A player who resigns also
+     loses.
+     Draw: the game is drawn when both players agree. Other draw rules are not part of the basic
+     requirements.
+
+Rule references:
+
+ · Xiangqi.com: Rules and Getting Started
+ · Xiangqi.com: Pieces and Moves
+ · World Xiangqi Federation: Introduction to Xiangqi
+
+                                            1
+Xiangqi                                                                     CS109 Fall 2026
+
+4. Project Requirements
+
+Basic Tasks 1­5 total 80 points. Advanced Features completed in Week 15 are worth up to 30 points,
+while those completed in Week 16 are worth up to 20 points. The final score is capped at 100 points.
+
+         Task                            Points
+
+         1. Game initialization                                         10
+         2. Multi-user login                                            15
+         3. Save and load games                                         15
+         4. Gameplay logic                                              30
+         5. Graphical user interface                                    10
+         6. Advanced features            30 (Week 15) / 20 (Week 16)
+
+Task 1: Game Initialization (10 points)
+ 1. Display the board correctly, including the river, palaces, and initial piece positions.
+ 2. Reset the board to its initial state when starting a new game.
+ 3. Allow players to start a new game at any time without restarting the program.
+
+Task 2: Multi-user Login (15 points)
+ 1. Provide registration and login interfaces.
+ 2. Allow guests to play without logging in. Guests cannot save or load game progress.
+ 3. Previously registered users must still be able to log in after the program is closed and reopened.
+
+Task 3: Save and Load Games (15 points)
+ 1. Allow registered users to save their current game progress, including the board state, player turn,
+     and move history.
+ 2. Provide at least one save slot per user. Allow a user to load a previous save from the menu.
+ 3. Detect invalid formats or game data in corrupted or modified save files, and handle them appropriately
+     without crashing.
+
+Task 4: Gameplay Logic (30 points)
+ 1. Implement legal movement rules for all seven piece types. Prevent illegal moves from being executed.
+ 2. Implement capturing, check, checkmate, stalemate, and draws.
+ 3. Provide an option to resign. Allow the game to end in a draw by mutual agreement.
+ 4. Display appropriate messages for check, win/loss, and draw.
+ 5. Display the previous move, for example by highlighting the moved piece or showing a textual record.
+
+Task 5: Graphical User Interface (10 points)
+ 1. Implement a graphical board and interactive piece movement using Swing, JavaFX, or another Java
+     GUI framework.
+ 2. Show whose turn it is and display check, win/loss, and draw states clearly. Normal gameplay should
+     not require command-line interaction.
+ 3. A command-line-only game will not receive full marks for this task.
+
+Task 6: Advanced Features (Max 30 points in Week 15; 20 in Week 16)
+Advanced or creative features may include, but are not limited to:
+
+ · An AI opponent with adjustable difficulty.
+
+                                      2
+Xiangqi     CS109 Fall 2026
+
+· Move suggestions, or legal-move highlighting.
+· Timers or time-limited game modes.
+· Move-by-move replay, undo, or move-record export and import.
+· Importing custom positions or endgame setups.
+· Online or local-network multiplayer.
+· Automatic saving.
+· Improved graphics, animations, board or piece themes, sound effects, or background music.
+· An independently implemented GUI (not the one provided in the Demo).
+
+         3
+Xiangqi     CS109 Fall 2026
+
+5. Demo Guide
+
+You may build on the provided Demo or implement your project from scratch. The Demo is only a
+starting example; your submission must meet the project requirements above.
+
+Requirements and Launch
+The Demo uses JDK 25, Maven, and Swing. Swing is included in the JDK; no third-party runtime library
+is required.
+
+ 1. Extract the Demo archive to obtain the XiangQi folder.
+ 2. In IntelliJ IDEA, choose File  Open and open the XiangQi folder containing pom.xml. Load it as a
+
+     Maven project.
+ 3. Open the following file and run its main method:
+
+     src/main/java/edu/sustech/xiangqi/Main.java
+
+         4
+           2026 
+
+ Demo 
+
+CS109 
+
+1. 
+
+ Java 
+
+
+2. 
+
+ 9 10  3 3 
+
+
+ 16 1 2 2 2 2 2 
+ 5 
+
+3. 
+
+ 1. 
+ 2. 
+
+     
+ 3. 
+
+     
+ 4. 
+
+     
+     
+     
+
+
+
+ · 
+ · 
+ · : Introduction to Xiangqi (In English)
+
+        1
+                                              CS109 2026 
+
+4. 
+
+ 1­5  80  15  30  16  20  100
+
+
+          
+
+  1.                                      10
+  2.                                      15
+  3.                                      15
+  4.                                      30
+  5.                                      10
+  6.   30 15 / 20 16 
+
+ 110 
+ 1. 
+ 2. 
+ 3. 
+
+ 215 
+ 1. 
+ 2. 
+ 3. 
+
+ 315 
+ 1. 
+ 2. 
+ 3. 
+
+ 430 
+ 1. 
+ 2. 
+ 3. 
+ 4. 
+ 5. 
+
+ 510 
+ 1.  SwingJavaFX  Java 
+ 2. 
+ 3. 
+
+ 6 15  30  16  20 
+
+
+ · 
+ · 
+ · 
+ · 
+ · 
+
+       2
+          CS109 2026 
+
+ · 
+ · 
+ · 
+ ·  Demo
+
+3
+     CS109 2026 
+
+5. Demo 
+
+ Demo Demo 
+
+
+
+Demo  JDK 25Maven  SwingSwing  JDK 
+
+ 1.  Demo  XiangQi 
+ 2.  IntelliJ IDEA  File  Open pom.xml  XiangQi  Maven 
+
+     
+ 3.  main 
+
+     src/main/java/edu/sustech/xiangqi/Main.java
+
+  4
+
